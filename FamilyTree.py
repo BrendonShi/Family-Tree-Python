@@ -90,7 +90,7 @@ class FamilyTree:
 
     def average_age_at_death(self):
         """Calculates the average age at death."""
-        dead_members = [person for person in self.members if person.is_alive()]  # a loop for adding people if alive
+        dead_members = [person for person in self.members if not person.is_alive()]  # a loop for adding dead people
         total_age = sum(person.get_age() for person in dead_members)  # finding sum of ages of dead members
         average_age = total_age // len(dead_members)
         return average_age
